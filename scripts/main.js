@@ -1,4 +1,5 @@
 $(function () {
+    var output = $('#output');
     var txtSearch = $('#txtSearch');
     var delay = (function(){
         var timer = 0;
@@ -36,7 +37,7 @@ $(function () {
                         collection: apiEpisodes
                     });
 
-                    $(document.body).append(episodesView.render().el);
+                    output.append(episodesView.render().el);
                 },
                 error: function (error) {
                     console.log('An error occurred:' + error);

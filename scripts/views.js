@@ -6,6 +6,7 @@ $(function () {
 
             this.model.get('guests').each(function (guest) {
                 var guestView = new GuestView({ model: guest });
+                console.log(guestView.render().el);
                 this.$el.append(guestView.render().el);
             }, this);
 
@@ -31,7 +32,7 @@ $(function () {
     window.GuestView = Backbone.View.extend({
         template: _.template($('#guestTemplate').html()),
         render: function () {
-            this.$el.html(this.template(this.model.attributes));
+            this.el = $(this.template(this.model.attributes));
             return this;
         }
     });
@@ -39,7 +40,7 @@ $(function () {
     window.HostView = Backbone.View.extend({
         template: _.template($('#hostTemplate').html()),
         render: function () {
-            this.$el.html(this.template(this.model.attributes));
+            this.el = $(this.template(this.model.attributes));
             return this;
         }
     });
@@ -47,7 +48,7 @@ $(function () {
     window.CarView = Backbone.View.extend({
         template: _.template($('#carTemplate').html()),
         render: function () {
-            this.$el.html(this.template(this.model.attributes));
+            this.el = $(this.template(this.model.attributes));
             return this;
         }
     });
@@ -55,13 +56,13 @@ $(function () {
     window.FeatureView = Backbone.View.extend({
         template: _.template($('#featureTemplate').html()),
         render: function () {
-            this.$el.html(this.template(this.model.attributes));
+            this.el = $(this.template(this.model.attributes));
             return this;
         }
     });
 
     window.EpisodesView = Backbone.View.extend({
-        el: $('#episodesContainer'),
+        template: _.template($('#episodesTemplate').html()),
         render: function () {
             this.$el.empty();
             this.collection.each(function (episode) {

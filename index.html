@@ -3,39 +3,61 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Top Gear Search</title>
+        <link rel="stylesheet" href="styles/normalize.css">
+        <link rel="stylesheet" href="styles/skeleton.css">
 		<link rel="stylesheet" href="styles/layout.css">
+        <link rel="stylesheet" href="styles/type.css">
 	</head>
 	<body cz-shortcut-listen="true">
-		<h1>Top Gear Search</h1>
-        <input type="text" id="txtSearch" />
-        <div id="episodesContainer">
-        </div>
-        <script type="text/template" id="episodeTemplate">
-            <div>
-                <h2><%= title %></h2>
-                <h4><%= air_date %></h4>
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="twelve columns align-center">
+                        <h1>Top Gear Search</h1>
+                    </div>
+                </div>
             </div>
-        </script>
-        <script type="text/template" id="guestTemplate">
-            <div>
-                <p><%= name %></p>
+        </header>
+        <main>
+            <section id="input">
+                <div class="container">
+                    <div class="row">
+                        <div class="twelve columns align-center">
+                            <input type="text" id="txtSearch">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="output">
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="twelve columns align-center">
+                        <p>Ben Walters 2016</p>
+                    </div>
+                </div>
             </div>
-        </script>
-        <script type="text/template" id="hostTemplate">
-            <div>
-                <p><%= name %></p>
-            </div>
-        </script>
-        <script type="text/template" id="carTemplate">
-            <div>
+        </footer>
+        <script type="text/template" id="episodesTemplate" class="episodes-template">
 
-                <p><%= name %></p>
-            </div>
         </script>
-        <script type="text/template" id="featureTemplate">
-            <div>
-                <p><%= description %></p>
-            </div>
+        <script type="text/template" id="episodeTemplate" class="episode-template">
+            <h4><%= title %></h4>
+            <h6><%= air_date %></h4>
+        </script>
+        <script type="text/template" id="guestTemplate" class="guest-template">
+            <p><%= name %></p>
+        </script>
+        <script type="text/template" id="hostTemplate" class="host-template">
+            <p><%= name %></p>
+        </script>
+        <script type="text/template" id="carTemplate" class="car-template">
+            <p><%= name %></p>
+        </script>
+        <script type="text/template" id="featureTemplate" class="feature-template">
+            <p><%= description %></p>
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
