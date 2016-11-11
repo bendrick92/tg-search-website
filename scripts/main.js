@@ -1,6 +1,6 @@
 $(function () {
-    var output = $('#output');
-    var txtSearch = $('#txtSearch');
+    var output = $('#search-output');
+    var input = $('#search-input');
     var delay = (function(){
         var timer = 0;
         return function(callback, ms){
@@ -9,7 +9,7 @@ $(function () {
         };
     })();
 
-    txtSearch.keyup(function () {
+    input.keyup(function () {
         var searchTerm = $(this).val();
 
         delay(function() {
@@ -34,10 +34,11 @@ $(function () {
                     console.log('Data retrieved successfully');
 
                     var episodesView = new EpisodesView({
-                        collection: apiEpisodes
+                        collection: apiEpisodes,
+                        el: output
                     });
 
-                    output.append(episodesView.render().el);
+                    episodesView.render();
                 },
                 error: function (error) {
                     console.log('An error occurred:' + error);

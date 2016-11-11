@@ -21,6 +21,14 @@ body {
         -webkit-box-flex: 1 0 auto;
         -webkit-flex: 1 0 auto;
     }
+    header {
+        padding: 0;
+        margin: 0;
+    }
+        header h1 {
+            margin: 2rem 0;
+            padding: 0;
+        }
     main {
         flex: 1 0 auto;
         -ms-flex: 1 0 auto;
@@ -33,6 +41,42 @@ body {
         align-items: flex-end;
     }
 
-h1, h2, h3, h4, h5, h6 {
+.unstyled-list {
+    margin-left: 0;
+    list-style-type: none;
+}
+
+.table-container {
+    display: table;
+}
+    .table-container > * {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+.margin-two {
     margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.episode {
+    margin: 0 0 2rem;
+}
+    .episode-header {
+        margin: 0 0 1em;
+    }
+        .episode-header h4 {
+            padding: .5em 1em;
+            margin: 0;
+        }
+        .episode-header .air-date {
+            padding: .5em 1em;
+            margin: 0;
+        }
+
+input#search-input {
+    width: 100%;
+    max-width: 30em;
+    padding: .75em .5em;
+    box-sizing: border-box;
 }
