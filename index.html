@@ -8,11 +8,12 @@
 		<link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/type.css">
         <link rel="stylesheet" href="styles/color.css">
+        <link rel="stylesheet" href="styles/font-awesome.min.css">
 	</head>
 	<body cz-shortcut-listen="true">
         <header>
             <div class="container">
-                <div class="row">
+                <div class="row margin-two">
                     <div class="twelve columns align-center">
                         <h1>Top Gear Search</h1>
                     </div>
@@ -52,21 +53,27 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="three columns">
-                        <h6>Guests</h6>
-                        <ul class="guests unstyled-list"></ul>
-                    </div>
-                    <div class="three columns">
-                        <h6>Hosts</h6>
-                        <ul class="hosts unstyled-list"></ul>
-                    </div>
-                    <div class="three columns">
-                        <h6>Cars</h6>
-                        <ul class="cars unstyled-list"></ul>
-                    </div>
-                    <div class="three columns">
-                        <h6>Features</h6>
-                        <ul class="features unstyled-list"></ul>
+                    <div class="twelve columns episode-content">
+                        <div class="container u-full-width">
+                            <div class="row">
+                                <div class="three columns">
+                                    <h6><span class="fa fa-user fa-md"></span> Guests</h6>
+                                    <ul class="guests unstyled-list"></ul>
+                                </div>
+                                <div class="three columns">
+                                    <h6><span class="fa fa-users fa-md"></span> Hosts</h6>
+                                    <ul class="hosts unstyled-list"></ul>
+                                </div>
+                                <div class="three columns">
+                                    <h6><span class="fa fa-car fa-md"></span> Cars</h6>
+                                    <ul class="cars unstyled-list"></ul>
+                                </div>
+                                <div class="three columns">
+                                    <h6><span class="fa fa-film fa-md"></span> Segments</h6>
+                                    <ul class="features unstyled-list"></ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,6 +89,11 @@
         </script>
         <script type="text/template" id="feature-template">
             <li><%= description %></li>
+        </script>
+        <script type="text/template" id="loading-template">
+            <div class="loading">
+                <h2 class="align-center"><span class="fa fa-spinner fa-xl fa-spin"></span></h2>
+            </div>
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>

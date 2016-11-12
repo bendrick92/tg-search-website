@@ -1,6 +1,7 @@
 $(function () {
     var output = $('#search-output');
     var input = $('#search-input');
+    var loading = $('#loading-template').html();
     var delay = (function(){
         var timer = 0;
         return function(callback, ms){
@@ -18,14 +19,19 @@ $(function () {
     });
 
     function executeFetch(searchTerm) {
-        // var url = 'http://localhost:3000/v1/episodes';
+        //var url = 'http://localhost:3000/v1/episodes';
         var url = 'https://tg-api.herokuapp.com/v1/episodes';
+
+        output.empty();
+
         if (searchTerm != '') {
             url = url + '?search=' + searchTerm;
 
             var apiEpisodes = new EpisodeCollection(null, {
                 url: url,
             });
+
+            output.append(loading);
 
             console.log('Searching for ' + searchTerm);
 
