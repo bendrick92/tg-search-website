@@ -1,4 +1,8 @@
 .blue {
-    background-color: blue;
+    background-color: #367ea3;
     color: white;
+}
+
+.border-gray {
+    border-color: #d3d3d3;
 }

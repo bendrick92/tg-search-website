@@ -19,8 +19,8 @@ $(function () {
     });
 
     function executeFetch(searchTerm) {
-        //var url = 'http://localhost:3000/v1/episodes';
-        var url = 'https://tg-api.herokuapp.com/v1/episodes';
+        var url = 'http://localhost:3000/v1/episodes';
+        //var url = 'https://tg-api.herokuapp.com/v1/episodes';
 
         output.empty();
 
