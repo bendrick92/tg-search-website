@@ -54,9 +54,24 @@ body {
         vertical-align: middle;
     }
 
+.padding-one {
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.margin-one {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 .margin-two {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+.border-one {
+    border: 1px solid;
+}
+
+.border-round {
+    border-radius: .25em;
 }
 
 .episode {
@@ -90,12 +105,4 @@ input#search-input {
     width: 100%;
     height: 100%;
     display: inline-block;
-}
-
-.border-one {
-    border: 1px solid;
-}
-
-.border-round {
-    border-radius: .25em;
 }

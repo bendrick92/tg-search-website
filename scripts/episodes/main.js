@@ -2,6 +2,7 @@ $(function () {
     var output = $('#search-output');
     var input = $('#search-input');
     var loading = $('#loading-template').html();
+    var noResults = $('#no-results-template').html();
     var delay = (function(){
         var timer = 0;
         return function(callback, ms){
@@ -19,8 +20,8 @@ $(function () {
     });
 
     function executeFetch(searchTerm) {
-        var url = 'http://localhost:3000/v1/episodes';
-        //var url = 'https://tg-api.herokuapp.com/v1/episodes';
+        //var url = 'http://localhost:3000/v1/episodes';
+        var url = 'https://tg-api.herokuapp.com/v1/episodes';
 
         output.empty();
 
@@ -39,10 +40,16 @@ $(function () {
                 success: function (response, xhr) {
                     console.log('Data retrieved successfully');
 
-                    var episodesView = new EpisodesView({
-                        collection: apiEpisodes,
-                        el: output
-                    });
+                    if (response.length > 0) {
+                        var episodesView = new EpisodesView({
+                            collection: apiEpisodes,
+                            el: output
+                        });
+                    }
+                    else {
+                        output.empty();
+                        output.append(noResults);
+                    }
 
                     episodesView.render();
                 },
