@@ -1,3 +1,7 @@
+* {
+    min-width: 0;
+    min-height: 0;
+}
 html, body {
     width: 100%;
     max-width: 100%;
@@ -5,21 +9,21 @@ html, body {
     height: 100%;    
 }
 body {
-    display: flex;
     display: -ms-flexbox;
     display: -moz-box;
     display: -webkit-box;
-    display: -webkit-flex;  
-    flex-direction: column;
+    display: -webkit-flex;
+    display: flex;
     -ms-flex-direction: column;
-    -webkit-flex-direction: column;    
+    -webkit-flex-direction: column;
+    flex-direction: column;    
 }
     header, footer {
-        flex: 1 0 auto;
         -ms-flex: 1 0 auto;
         -moz-box-flex: 1 0 auto;
         -webkit-box-flex: 1 0 auto;
         -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
     }
     header {
         padding: 0;
@@ -30,11 +34,11 @@ body {
             padding: 0;
         }
     main {
-        flex: 1 0 auto;
         -ms-flex: 1 0 auto;
         -moz-box-flex: 1 0 auto;
         -webkit-box-flex: 1 0 auto;
         -webkit-flex: 1 0 auto;
+        flex: 1 0 auto;
     }
     footer {
         display: flex;
@@ -97,7 +101,9 @@ body {
 input#search-input {
     width: 100%;
     max-width: 30em;
-    padding: 1em .5em;
+    height: 100%;
+    padding: .5em;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
