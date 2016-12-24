@@ -33,6 +33,11 @@ body {
             margin: 2rem 0;
             padding: 0;
         }
+        header #help-button {
+            position: fixed;
+            right: 1rem;
+            top: 1rem;
+        }
     main {
         -ms-flex: 1 0 auto;
         -moz-box-flex: 1 0 auto;

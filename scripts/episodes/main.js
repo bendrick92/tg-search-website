@@ -3,6 +3,8 @@ $(function () {
     var input = $('#search-input');
     var loading = $('#loading-template').html();
     var noResults = $('#no-results-template').html();
+    var helpButton = $('#help-button');
+    var help = $('#help-template').html();
     var delay = (function(){
         var timer = 0;
         return function(callback, ms){
@@ -10,6 +12,11 @@ $(function () {
             timer = setTimeout(callback, ms);
         };
     })();
+
+    helpButton.click(function () {
+        output.empty();
+        output.append(help);
+    });
 
     input.keyup(function () {
         var searchTerm = $(this).val();
