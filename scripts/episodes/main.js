@@ -1,10 +1,11 @@
 $(function () {
+    var body = $(document.body);
     var output = $('#search-output');
     var input = $('#search-input');
-    var loading = $('#loading-template').html();
-    var noResults = $('#no-results-template').html();
+    var loadingTemplate = $('#loading-template').html();
+    var noResultsTemplate = $('#no-results-template').html();
     var helpButton = $('#help-button');
-    var help = $('#help-template').html();
+    var helpOverlayTemplate = $('#help-overlay-template').html();
     var delay = (function(){
         var timer = 0;
         return function(callback, ms){
@@ -14,8 +15,13 @@ $(function () {
     })();
 
     helpButton.click(function () {
-        output.empty();
-        output.append(help);
+        body.append(helpOverlayTemplate);
+        var helpOverlayCloseButton = $("#help-overlay .close-button");
+        
+        helpOverlayCloseButton.click(function () {
+            var helpOverlay = $("#help-overlay");
+            helpOverlay.remove();
+        });
     });
 
     input.keyup(function () {
@@ -39,7 +45,7 @@ $(function () {
                 url: url,
             });
 
-            output.append(loading);
+            output.append(loadingTemplate);
 
             console.log('Searching for ' + searchTerm);
 
@@ -55,7 +61,7 @@ $(function () {
                     }
                     else {
                         output.empty();
-                        output.append(noResults);
+                        output.append(noResultsTemplate);
                     }
 
                     episodesView.render();

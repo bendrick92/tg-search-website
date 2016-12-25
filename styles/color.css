@@ -2,7 +2,15 @@
     background-color: #367ea3;
     color: white;
 }
+.white {
+    background-color: #ffffff;
+    color: #000000;
+}
 
 .border-gray {
     border-color: #d3d3d3;
+}
+
+.blue-text {
+    color: #367ea3;
 }

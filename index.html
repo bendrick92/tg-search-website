@@ -20,40 +20,100 @@
                     </div>
                 </div>
             </div>
-            <a id="help-button" href="#"><span class="fa fa-question-circle fa-lg"></span> <strong>Help</strong></a>
         </header>
         <main>
             <section id="input">
                 <div class="container">
                     <div class="row margin-two">
                         <div class="twelve columns align-center">
-                            <input type="text" id="search-input" placeholder="Type a search term">
+                            <div class="table-container u-full-width">
+                                <input type="text" id="search-input" placeholder="Type a search term">
+                                <div class="min-width-cell">
+                                    <a id="help-button" href="javascript:void(0)"><span class="fa fa-question-circle fa-lg blue-text"></span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section id="search-output">
+                <!--<div class="episode">
+                    <div class="container border-one border-gray border-round">
+                        <div class="row">
+                            <div class="twelve columns blue episode-header">
+                                <div class="table-container u-full-width">
+                                    <h4>Series 4, Episode 8</h4>
+                                    <p class="air-date align-right">07/18/2004</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="twelve columns episode-content">
+                                <div class="container u-full-width">
+                                    <div class="row">
+                                        <div class="three columns">
+                                            <h5><span class="fa fa-user fa-md"></span> Guests</h5>
+                                            <ul class="guests unstyled-list"><li>Martin Clunes</li></ul>
+                                        </div>
+                                        <div class="three columns">
+                                            <h5><span class="fa fa-users fa-md"></span> Hosts</h5>
+                                            <ul class="hosts unstyled-list"><li>Jeremy Clarkson</li><li>Richard Hammond</li><li>James May</li></ul>
+                                        </div>
+                                        <div class="three columns">
+                                            <h5><span class="fa fa-car fa-md"></span> Cars</h5>
+                                            <ul class="cars unstyled-list"><li>Ford GT</li><li>Maserati Quattroporte</li></ul>
+                                        </div>
+                                        <div class="three columns">
+                                            <h5><span class="fa fa-film fa-md"></span> Segments</h5>
+                                            <ul class="features unstyled-list"><li>Diesel versus Petrol hot hatch race</li><li>Blowing over cars using Boeing 747 jetblast</li><li>Tribute to the Rover V8 engine</li></ul>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="twelve columns">
+                                            <h5><span class="fa fa-file-text fa-md"></span> Summary</h5>
+                                            <p>Clarkson finds out how much of an improvement his dream car, the Ford GT, is to the original GT40, while May tries to figure out whether the Maserati Quattroporte wants to be a luxury saloon or a performance car. Elsewhere, there is a race between a turbodiesel Škoda Fabia VRS and a supercharged petrol Mini Cooper to see if diesel technology has caught up to Petrol, Hammond bids farewell to the Rover V8 engine by entering an unmodified Rover SD1 into a Touring car race, a modern Ford Mondeo and a more primitive Citroen 2CV (both unmanned) are sent out into the jet wake of a Virgin Atlantic Boeing 747 G-VAST's engines, and Martin Clunes takes the Liana around the track.  <a href="https://en.wikipedia.org/wiki/Top_Gear_(series_4)" target="_blank"><em>wikipedia.org</em></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
             </section>
         </main>
         <footer>
             <div class="container">
-                <div class="row">
+                <div class="row margin-two">
                     <div class="twelve columns align-center">
-                        <p>Created by <a href="http://bpwalters.com" target="_blank">Ben Walters</a></p>
+                        Created by <a href="http://bpwalters.com" target="_blank">Ben Walters</a>
                     </div>
                 </div>
             </div>
         </footer>
-        <script type="text/template" id="help-template">
-            <div class="container">
-                <div class="row">
-                    <div class="twelve columns">
-                        <h4 class="align-center">Search Tips</h4>
+        <script type="text/template" id="help-overlay-template">
+            <div id="help-overlay" class="background-overlay">
+                <div class="container white">
+                    <div class="row">
+                        <div class="twelve columns">
+                            <div class="u-pull-right">
+                                <a class="close-button" href="javascript:void(0)">X</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns">
+                            <h4 class="align-center">Search Tips</h4>
                         <ul>
                             <li>Use commas to separate search keywords - results will try to match all provided terms (Ex. "Lancer, Lamborghini" will return results with <strong>both</strong> terms)</li>
                             <li>Spaces between words will be interpreted literally - Ex. "Ferrari F12" will be searched <strong>exactly</strong></li>
                             <li>Spelling is important - there is currently no auto-correct/spell check</li>
                         </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns align-center">
+                            <a class="close-button" href="javascript:void(0)">Close</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,7 +174,9 @@
         </script>
         <script type="text/template" id="loading-template">
             <div class="loading">
-                <h2 class="align-center"><span class="fa fa-spinner fa-xl fa-spin"></span></h2>
+                <div class="margin-two">
+                    <h2 class="align-center"><span class="fa fa-circle-o-notch fa-xl fa-spin"></span></h2>
+                </div>
             </div>
         </script>
         <script type="text/template" id="no-results-template">
