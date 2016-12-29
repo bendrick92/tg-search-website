@@ -12,6 +12,9 @@ h4, h5, h6 {
 a {
     text-decoration: none;
 }
+li ul {
+    font-size: 100%;
+}
 
 .align-left {
     text-align: left;

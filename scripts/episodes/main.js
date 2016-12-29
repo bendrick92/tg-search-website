@@ -38,8 +38,22 @@ $(function () {
 
         output.empty();
 
-        if (searchTerm != '') {
+        searchTerm = searchTerm.trim();
+
+        if (searchTerm != '' && searchTerm != 'nolog') {
+            var loggingDisabled = false;
+            if (searchTerm.includes('nolog')) {
+                loggingDisabled = true;
+                console.log('Logging disabled');
+                searchTerm = searchTerm.replace('nolog', '');
+                searchTerm = searchTerm.trim();
+            }
+
             url = url + '?search=' + searchTerm;
+            
+            if (loggingDisabled) {
+                url = url + '&logging=0';
+            }
 
             var apiEpisodes = new EpisodeCollection(null, {
                 url: url,

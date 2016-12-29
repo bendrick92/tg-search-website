@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="styles/layout.css">
         <link rel="stylesheet" href="styles/type.css">
         <link rel="stylesheet" href="styles/color.css">
+        <link rel="stylesheet" href="styles/responsive.css">
         <link rel="stylesheet" href="styles/font-awesome.min.css">
 	</head>
 	<body cz-shortcut-listen="true">
@@ -27,7 +28,7 @@
                     <div class="row margin-two">
                         <div class="twelve columns align-center">
                             <div class="table-container u-full-width">
-                                <input type="text" id="search-input" placeholder="Type a search term">
+                                <input type="text" id="search-input" placeholder="Start typing to search">
                                 <div class="min-width-cell">
                                     <a id="help-button" href="javascript:void(0)"><span class="fa fa-question-circle fa-lg blue-text"></span></a>
                                 </div>
@@ -91,7 +92,9 @@
             </div>
         </footer>
         <script type="text/template" id="help-overlay-template">
-            <div id="help-overlay" class="background-overlay">
+            <div id="help-overlay">
+                <div class="background-overlay">
+                </div>
                 <div class="container white">
                     <div class="row">
                         <div class="twelve columns">
