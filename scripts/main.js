@@ -39,7 +39,7 @@ $(function () {
 
     $('body').on('click', 'ul.auto-complete-list li', function () {
         var autoCompleteTerm = $(this).text();
-        searchTermInput.val(autoCompleteTerm + ' ');
+        searchTermInput.val(autoCompleteTerm);
         searchButton.trigger('click');
     });
 
@@ -55,11 +55,19 @@ $(function () {
 
     clearButton.click(function () {
         searchTermInput.val('');
+        searchOutput.empty();
+        autoCompleteOutput.empty();
     });
 
     searchButton.click(function () {
         var searchTerm = searchTermInput.val();
         executeFetch(searchTerm);
+    });
+
+    $('body').keypress(function (key) {
+        if (key.which == 13) {
+            searchButton.trigger('click');
+        }
     });
 
     function executeAutoCompleteFetch(searchTerm) {
