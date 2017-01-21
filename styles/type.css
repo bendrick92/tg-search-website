@@ -26,7 +26,11 @@ li ul {
     text-align: right;
 }
 
-input#search-input {
+input#search-term {
     font-size: 1.5em;
     line-height: 1.5em;
+}
+
+ul.auto-complete-list {
+    text-align: left;
 }

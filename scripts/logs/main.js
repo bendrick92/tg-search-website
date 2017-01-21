@@ -1,11 +1,11 @@
 $(function () {
-    var output = $('#output');
+    var output = $('#output');    
+    var logsUrl = baseUrl + 'logs';
 
     executeFetch();
 
     function executeFetch() {
-        //var url = 'http://localhost:3000/v1/logs';
-        var url = 'https://tg-api.herokuapp.com/v1/logs';
+        var url = logsUrl;
 
         output.empty();
 
