@@ -1,18 +1,17 @@
 $(function () {
     var body = $(document.body);
-    
     var searchTermInput = $('input#search-term');
-    var clearButton = $('#clear-button');
-    var helpButton = $('#help-button');
+    var clearSearchTermButton = $('#clear-search-term-button');
+    var clearSearchResultsButton = $('#clear-search-results-button');
     var searchButton = $('#search-button');
-
     var searchOutput = $('#search-output');
     var autoCompleteOutput = $('#auto-complete-output');
-
     var loadingTemplate = $('#loading-template').html();
     var noResultsTemplate = $('#no-results-template').html();
     var helpOverlayTemplate = $('#help-overlay-template').html();
-
+    var autoCompleteUrl = baseUrl + 'autocomplete';
+    var episodesUrl = baseUrl + 'episodes';
+    var enterKeyIndex = 13;
     var delay = (function () {
         var timer = 0;
         return function (callback, ms) {
@@ -20,14 +19,10 @@ $(function () {
             timer = setTimeout(callback, ms);
         }
     })();
-    var autoCompleteUrl = baseUrl + 'autocomplete';
-    var episodesUrl = baseUrl + 'episodes';
 
     searchTermInput.keyup(function () {
-        var searchTerm = $(this).val();
-        
         delay(function() {
-            executeAutoCompleteFetch(searchTerm);
+            executeAutoCompleteFetch(getSearchTermInput());
         }, 500);
     });
 
@@ -39,40 +34,74 @@ $(function () {
 
     $('body').on('click', 'ul.auto-complete-list li', function () {
         var autoCompleteTerm = $(this).text();
-        searchTermInput.val(autoCompleteTerm);
-        searchButton.trigger('click');
+
+        setSearchTermInput(autoCompleteTerm);
+        executeSearch();
     });
 
-    helpButton.click(function () {
-        body.append(helpOverlayTemplate);
-        var helpOverlayCloseButton = $('#help-overlay .close-button');
-        
-        helpOverlayCloseButton.click(function () {
-            var helpOverlay = $('#help-overlay');
-            helpOverlay.remove();
-        });
+    clearSearchTermButton.click(function () {
+        clearSearchTermInput();
+        clearAutoComplete();
     });
 
-    clearButton.click(function () {
-        searchTermInput.val('');
-        searchOutput.empty();
-        autoCompleteOutput.empty();
+    clearSearchResultsButton.click(function () {
+        clearSearchResults();
+        hideClearSearchResultsButton();
     });
 
     searchButton.click(function () {
-        var searchTerm = searchTermInput.val();
-        executeFetch(searchTerm);
+        executeSearch();
     });
 
     $('body').keypress(function (key) {
-        if (key.which == 13) {
-            searchButton.trigger('click');
+        if (key.which == enterKeyIndex) {
+            executeSearch();
         }
     });
 
-    function executeAutoCompleteFetch(searchTerm) {
-        autoCompleteOutput.empty();
+    function executeSearch() {
+        executeFetch(getSearchTermInput());
+        clearAutoComplete();
+    }
 
+    function clearAll() {
+        clearSearchTermInput();
+        clearAutoComplete();
+        clearSearchResults();
+    }
+
+    function clearSearchTermInput() {
+        searchTermInput.val('');
+        searchTermInput.blur();
+    }
+
+    function clearAutoComplete() {
+        autoCompleteOutput.empty();
+        searchTermInput.blur();
+    }
+
+    function clearSearchResults() {
+        searchOutput.empty();
+        hideClearSearchResultsButton();
+    }
+
+    function setSearchTermInput(input) {
+        searchTermInput.val(input);
+    }
+
+    function getSearchTermInput() {
+        return searchTermInput.val();
+    }
+
+    function showClearSearchResultsButton() {
+        clearSearchResultsButton.show();
+    }
+
+    function hideClearSearchResultsButton () {
+        clearSearchResultsButton.hide();
+    }
+
+    function executeAutoCompleteFetch(searchTerm) {
         searchTerm = searchTerm.trim();
 
         if (searchTerm != '') {
@@ -83,7 +112,7 @@ $(function () {
 
             apiAutoComplete.fetch({
                 success: function (response, xhr) {
-                    console.log('Autocomplete data retrieved successfully');
+                    autoCompleteOutput.empty();
 
                     if (response != null) {
                         var autoCompleteView = new AutoCompleteView({
@@ -94,7 +123,7 @@ $(function () {
                         autoCompleteView.render();
                     }
                     else {
-                        autoCompleteOutput.empty();
+                        clearAutoComplete();
                     }
                 },
                 error: function (error) {
@@ -105,8 +134,6 @@ $(function () {
     }
 
     function executeFetch(searchTerm) {
-        searchOutput.empty();
-
         searchTerm = searchTerm.trim();
 
         if (searchTerm != '' && searchTerm != 'nolog') {
@@ -130,24 +157,25 @@ $(function () {
 
             searchOutput.append(loadingTemplate);
 
-            console.log('Searching for ' + searchTerm);
-
             apiEpisodes.fetch({
                 success: function (response, xhr) {
-                    console.log('Episode data retrieved successfully');
+                    clearSearchResults();
 
-                    if (response != null) {
+                    if (response != null && response.length > 0) {
+                        showClearSearchResultsButton();
+
                         var episodesView = new EpisodesView({
                             collection: apiEpisodes,
                             el: searchOutput
                         });
+                        
+                        episodesView.render();
                     }
                     else {
-                        searchOutput.empty();
+                        hideClearSearchResultsButton();
+                        clearSearchResults();
                         searchOutput.append(noResultsTemplate);
                     }
-
-                    episodesView.render();
                 },
                 error: function (error) {
                     console.log('An error occurred retrieving episode data:' + error);

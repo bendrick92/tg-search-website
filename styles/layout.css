@@ -114,7 +114,7 @@ body {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    .search-box #clear-button {
+    .search-box #clear-search-term-button {
         position: absolute;
         right: 3em;
         top: 50%;
@@ -132,6 +132,7 @@ body {
         .search-box #search-button:hover {
             cursor: pointer;
         }
+
 ul.auto-complete-list {
     width: 100%;
     padding: 0;
