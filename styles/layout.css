@@ -2,6 +2,9 @@
     min-width: 0;
     min-height: 0;
 }
+ul {
+    text-indent: 1em;
+}
 html, body {
     width: 100%;
     max-width: 100%;
@@ -32,6 +35,10 @@ body {
         header h1 {
             margin: 2rem 0;
             padding: 0;
+        }
+        header nav a {
+            margin: 0 1em;
+            display: inline-block;
         }
     main {
         -ms-flex: 1 0 auto;
@@ -132,7 +139,7 @@ body {
         top: 50%;
         transform: translateY(-50%);
     }
-        .search-box #clear-button:hover {
+        .search-box #clear-search-term-button:hover {
             cursor: pointer;
         }
     .search-box #search-button {
