@@ -145,6 +145,10 @@ body {
             cursor: pointer;
         }
 
+#clear-search-results-button {
+    cursor: pointer;
+}
+
 ul.auto-complete-list {
     width: 100%;
     padding: 0;
