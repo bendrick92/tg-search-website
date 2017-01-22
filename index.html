@@ -65,64 +65,68 @@
             <% } %>
         </script>
         <script type="text/template" id="episode-template">
-            <div class="container border-one border-gray border-round">
+            <div class="container">
                 <div class="row">
-                    <div class="twelve columns blue episode-header">
-                        <div class="table-container u-full-width">
-                            <h4><%= title %></h4>
-                            <p class="air-date align-right"><%= air_date %></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="twelve columns episode-content">
-                        <div class="container u-full-width">
+                    <div class="twelve columns">
+                        <div class="container u-full-width border-one border-gray border-round">
                             <div class="row">
-                                <% if (guests.length > 0) { %>
-                                    <div class="three columns">
-                                        <h5><span class="fa fa-user fa-md"></span> Guests</h5>
-                                        <ul class="guests unstyled-list">
-                                            <% for (i = 0; i < guests.length; i++) { %>
-                                                <li><%= guests[i] %></li>
-                                            <% } %>
-                                        </ul>
-                                    </div>
-                                <% } %>
-                                <% if (hosts.length > 0) { %>
-                                    <div class="three columns">
-                                        <h5><span class="fa fa-users fa-md"></span> Hosts</h5>
-                                        <ul class="hosts unstyled-list">
-                                            <% for (i = 0; i < hosts.length; i++) { %>
-                                                <li><%= hosts[i] %></li>
-                                            <% } %>
-                                        </ul>
-                                    </div>
-                                <% } %>
-                                <% if (cars.length > 0) { %>
-                                    <div class="three columns">
-                                        <h5><span class="fa fa-car fa-md"></span> Cars</h5>
-                                        <ul class="cars unstyled-list">
-                                            <% for (i = 0; i < cars.length; i++) { %>
-                                                <li><%= cars[i] %></li>
-                                            <% } %>
-                                        </ul>
-                                    </div>
-                                <% } %>
-                                <% if (features.length > 0) { %>
-                                    <div class="three columns">
-                                        <h5><span class="fa fa-film fa-md"></span> Segments</h5>
-                                        <ul class="features unstyled-list">
-                                            <% for (i = 0; i < features.length; i++) { %>
-                                                <li><%= features[i] %></li>
-                                            <% } %>
-                                        </ul>
-                                    </div>
-                                <% } %>
+                                <div class="twelve columns blue episode-header">
+                                    <h4 class="padding-no-bottom"><%= title %></h4>
+                                    <p class="air-date"><%= air_date %></p>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="twelve columns">
-                                    <h5><span class="fa fa-file-text fa-md"></span> Summary</h5>
-                                    <p><%= summary %>  <%= summary_link %></p>
+                                <div class="twelve columns episode-content">
+                                    <div class="container u-full-width">
+                                        <div class="row">
+                                            <% if (guests.length > 0) { %>
+                                                <div class="three columns">
+                                                    <h5><span class="fa fa-user fa-md"></span> Guests</h5>
+                                                    <ul class="guests unstyled-list">
+                                                        <% for (i = 0; i < guests.length; i++) { %>
+                                                            <li><%= guests[i] %></li>
+                                                        <% } %>
+                                                    </ul>
+                                                </div>
+                                            <% } %>
+                                            <% if (hosts.length > 0) { %>
+                                                <div class="three columns">
+                                                    <h5><span class="fa fa-users fa-md"></span> Hosts</h5>
+                                                    <ul class="hosts unstyled-list">
+                                                        <% for (i = 0; i < hosts.length; i++) { %>
+                                                            <li><%= hosts[i] %></li>
+                                                        <% } %>
+                                                    </ul>
+                                                </div>
+                                            <% } %>
+                                            <% if (cars.length > 0) { %>
+                                                <div class="three columns">
+                                                    <h5><span class="fa fa-car fa-md"></span> Cars</h5>
+                                                    <ul class="cars unstyled-list">
+                                                        <% for (i = 0; i < cars.length; i++) { %>
+                                                            <li><%= cars[i] %></li>
+                                                        <% } %>
+                                                    </ul>
+                                                </div>
+                                            <% } %>
+                                            <% if (features.length > 0) { %>
+                                                <div class="three columns">
+                                                    <h5><span class="fa fa-film fa-md"></span> Segments</h5>
+                                                    <ul class="features unstyled-list">
+                                                        <% for (i = 0; i < features.length; i++) { %>
+                                                            <li><%= features[i] %></li>
+                                                        <% } %>
+                                                    </ul>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                        <div class="row">
+                                            <div class="twelve columns">
+                                                <h5><span class="fa fa-file-text fa-md"></span> Summary</h5>
+                                                <p class="margin-no-bottom"><%= summary %>  <%= summary_link %></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

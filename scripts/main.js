@@ -42,6 +42,7 @@ $(function () {
     clearSearchTermButton.click(function () {
         clearSearchTermInput();
         clearAutoComplete();
+        searchTermInput.focus();
     });
 
     clearSearchResultsButton.click(function () {
