@@ -14,3 +14,11 @@
 .blue-text {
     color: #367ea3;
 }
+
+ul.auto-complete-list {
+    border-color: #d3d3d3;
+}
+    ul.auto-complete-list li:hover {
+        background-color: #367ea3;
+        color: #ffffff;
+    }
